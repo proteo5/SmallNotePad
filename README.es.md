@@ -2,6 +2,16 @@
 
 Un editor de texto ligero y rico en funcionalidades construido con WPF y .NET 10. SmallNotePad es una versión moderna del clásico Bloc de notas de Windows con características de edición esenciales e interfaz limpia e intuitiva.
 
+---
+
+## 🚀 Descarga Rápida
+
+**[⬇️ Descargar SmallNotePad v1.0.0](https://github.com/proteo5/SmallNotePad/releases/tag/v1.0.0)**
+
+> ¡Descarga el instalador de nuestro último release y comienza a usar SmallNotePad hoy!
+
+---
+
 ## ✨ Características
 
 - 📝 **Edición de texto simple** - Interfaz limpia y minimalista para escribir sin distracciones
