@@ -2,7 +2,7 @@
 ; This script creates a professional installer with all features
 
 #define MyAppName "SmallNotePad"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.1.0"
 #define MyAppPublisher "proteo5"
 #define MyAppURL "https://github.com/proteo5/SmallNotePad"
 #define MyAppExeName "SmallNotePad.exe"

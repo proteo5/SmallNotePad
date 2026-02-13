@@ -15,13 +15,72 @@ namespace SmallNotePad
         private const int MaxRecentFiles = 10;
         private List<string> _recentFiles;
         private string _recentFilesPath;
+        private bool _isDarkMode = false;
+        private string _settingsPath;
 
         public MainWindow()
         {
             InitializeComponent();
             _recentFilesPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "recentfiles.txt");
+            _settingsPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "settings.txt");
             LoadRecentFiles();
             UpdateRecentFilesMenu();
+            LoadDarkModePreference();
+        }
+
+        private void LoadDarkModePreference()
+        {
+            try
+            {
+                if (File.Exists(_settingsPath))
+                {
+                    var lines = File.ReadAllLines(_settingsPath);
+                    foreach (var line in lines)
+                    {
+                        if (line.StartsWith("DarkMode="))
+                        {
+                            _isDarkMode = bool.Parse(line.Split('=')[1]);
+                            MenuViewDarkMode.IsChecked = _isDarkMode;
+                            ApplyTheme();
+                            break;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                _isDarkMode = false;
+                MenuViewDarkMode.IsChecked = false;
+            }
+        }
+
+        private void SaveDarkModePreference()
+        {
+            try
+            {
+                File.WriteAllText(_settingsPath, $"DarkMode={_isDarkMode}");
+            }
+            catch { }
+        }
+
+        // Public method to load a file from command line arguments
+        public void LoadFileFromCommandLine(string filePath)
+        {
+            if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))
+                return;
+
+            try
+            {
+                _currentFilePath = filePath;
+                TextEditor.Text = File.ReadAllText(filePath);
+                _isModified = false;
+                UpdateTitle();
+                AddRecentFile(filePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error opening file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void UpdateTitle()
@@ -289,6 +348,35 @@ namespace SmallNotePad
         {
             MenuItem menuItem = sender as MenuItem;
             TextEditor.TextWrapping = menuItem.IsChecked ? TextWrapping.Wrap : TextWrapping.NoWrap;
+        }
+
+        private void MenuViewDarkMode_Click(object sender, RoutedEventArgs e)
+        {
+            _isDarkMode = MenuViewDarkMode.IsChecked;
+            ApplyTheme();
+            SaveDarkModePreference();
+        }
+
+        private void ApplyTheme()
+        {
+            if (_isDarkMode)
+            {
+                // Dark Mode Colors - Only for Window and TextEditor
+                MainWindowElement.Background = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(30, 30, 30));
+                MainDockPanel.Background = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(30, 30, 30));
+                TextEditor.Background = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(30, 30, 30));
+                TextEditor.Foreground = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(220, 220, 220));
+                TextEditor.CaretBrush = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.White);
+            }
+            else
+            {
+                // Light Mode Colors (Default) - Only for Window and TextEditor
+                MainWindowElement.Background = System.Windows.Media.Brushes.White;
+                MainDockPanel.Background = System.Windows.Media.Brushes.White;
+                TextEditor.Background = System.Windows.Media.Brushes.White;
+                TextEditor.Foreground = System.Windows.Media.Brushes.Black;
+                TextEditor.CaretBrush = System.Windows.Media.Brushes.Black;
+            }
         }
 
         // Find/Replace Dialog

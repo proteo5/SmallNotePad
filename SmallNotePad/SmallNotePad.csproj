@@ -12,6 +12,10 @@
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/proteo5/SmallNotePad</PackageProjectUrl>
     <ApplicationIcon>App.ico</ApplicationIcon>
+    <Title>Small NotePad</Title>
+    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
