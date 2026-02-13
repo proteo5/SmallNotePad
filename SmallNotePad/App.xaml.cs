@@ -9,21 +9,12 @@ namespace SmallNotePad
     /// </summary>
     public partial class App : Application
     {
+        public static string[] CommandLineArgs { get; private set; }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
-            if (e.Args.Length > 0 && !string.IsNullOrEmpty(e.Args[0]))
-            {
-                string filePath = e.Args[0];
-                if (System.IO.File.Exists(filePath))
-                {
-                    if (MainWindow is MainWindow mainWindow)
-                    {
-                        mainWindow.LoadFileFromCommandLine(filePath);
-                    }
-                }
-            }
+            CommandLineArgs = e.Args;
         }
     }
 }

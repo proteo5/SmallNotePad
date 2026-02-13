@@ -26,6 +26,16 @@ namespace SmallNotePad
             LoadRecentFiles();
             UpdateRecentFilesMenu();
             LoadDarkModePreference();
+            
+            // Handle command line arguments
+            if (App.CommandLineArgs != null && App.CommandLineArgs.Length > 0)
+            {
+                string filePath = App.CommandLineArgs[0];
+                if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
+                {
+                    LoadFileFromCommandLine(filePath);
+                }
+            }
         }
 
         private void LoadDarkModePreference()
