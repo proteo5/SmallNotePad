@@ -2,13 +2,13 @@
 
 **📚 [Leer en Español](README.es.md) | Read in Spanish**
 
-A lightweight, feature-rich text editor built with WPF and .NET 10. SmallNotePad is a modern take on the classic Windows Notepad with essential editing features and a clean, intuitive interface.
+A lightweight, feature-rich text editor built with WPF and .NET 10. SmallNotePad is a modern take on the classic Windows Notepad with essential editing features, dark mode support, and a clean, intuitive interface.
 
 ---
 
 ## 🚀 Quick Download
 
-**[⬇️ Download SmallNotePad v1.0.0](https://github.com/proteo5/SmallNotePad/releases/tag/v1.0.0)**
+**[⬇️ Download SmallNotePad v1.1.0](https://github.com/proteo5/SmallNotePad/releases/tag/v1.1.0)**
 
 > Download the installer from our latest release and start using SmallNotePad today!
 
@@ -22,6 +22,8 @@ A lightweight, feature-rich text editor built with WPF and .NET 10. SmallNotePad
 - ✏️ **Edit Operations** - Undo, Cut, Copy, Paste, and Select All
 - 🔍 **Find & Replace** - Powerful search with Find, Find Next, Find Previous, and Replace All
 - 📄 **Word Wrap** - Toggle word wrapping on/off via the View menu
+- 🌙 **Dark Mode** - Eye-friendly dark theme for low-light environments with persistent preference
+- 🖱️ **File Association** - Open .txt files directly by double-clicking them in Windows Explorer
 - ⌨️ **Keyboard Shortcuts** - Standard Windows shortcuts for common operations
 - 💾 **Unsaved Changes Detection** - Asterisk (*) in title bar indicates unsaved changes
 - 🚨 **Smart Exit** - Prompts to save changes before closing
@@ -77,6 +79,8 @@ A lightweight, feature-rich text editor built with WPF and .NET 10. SmallNotePad
 4. **Find text**: Use `Edit → Find` (Ctrl+F) to search
 5. **Replace text**: Use `Edit → Replace` (Ctrl+H) to find and replace
 6. **Toggle word wrap**: Use `View → Word Wrap` to enable/disable text wrapping
+7. **Switch to dark mode**: Use `View → Dark Mode` to enable/disable dark theme
+8. **Open files from Explorer**: Double-click .txt files in Windows Explorer to open in SmallNotePad
 
 ## 📁 Project Structure
 
@@ -107,6 +111,7 @@ SmallNotePad/
 - **Save As**: Save with a new filename or location
 - **Close**: Close current file and return to blank document
 - **Recent Files**: Access last 10 opened files from File → Recent Files menu. You can also clear the recent files list.
+- **File Association**: Open .txt files directly by double-clicking them in Windows Explorer (requires installer setup)
 
 ### Editing Features
 - **Undo**: Revert last action
@@ -119,10 +124,15 @@ SmallNotePad/
 - **Find Previous**: Navigate to previous occurrence (Shift+F3)
 - **Replace All**: Replace all occurrences of search term
 
+### View Options
+- **Word Wrap**: Toggle text wrapping for better readability
+- **Dark Mode**: Switch between light and dark themes. Your preference is automatically saved and restored on next launch
+
 ### User Experience
 - **Title Bar Updates**: Shows filename and unsaved changes indicator (*)
 - **Unsaved Changes Warning**: Prompts to save before closing
 - **Standard Fonts**: Uses Consolas 12pt for comfortable reading
+- **Persistent Preferences**: Dark mode setting is remembered between sessions
 
 ## 🤝 Contributing
 

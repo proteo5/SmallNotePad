@@ -1,12 +1,12 @@
 # SmallNotePad
 
-Un editor de texto ligero y rico en funcionalidades construido con WPF y .NET 10. SmallNotePad es una versión moderna del clásico Bloc de notas de Windows con características de edición esenciales e interfaz limpia e intuitiva.
+Un editor de texto ligero y rico en funcionalidades construido con WPF y .NET 10. SmallNotePad es una versión moderna del clásico Bloc de notas de Windows con características de edición esenciales, modo oscuro e interfaz limpia e intuitiva.
 
 ---
 
 ## 🚀 Descarga Rápida
 
-**[⬇️ Descargar SmallNotePad v1.0.0](https://github.com/proteo5/SmallNotePad/releases/tag/v1.0.0)**
+**[⬇️ Descargar SmallNotePad v1.1.0](https://github.com/proteo5/SmallNotePad/releases/tag/v1.1.0)**
 
 > ¡Descarga el instalador de nuestro último release y comienza a usar SmallNotePad hoy!
 
@@ -20,6 +20,8 @@ Un editor de texto ligero y rico en funcionalidades construido con WPF y .NET 10
 - ✏️ **Operaciones de edición** - Deshacer, Cortar, Copiar, Pegar y Seleccionar todo
 - 🔍 **Buscar y reemplazar** - Búsqueda potente con Buscar, Buscar siguiente, Buscar anterior y Reemplazar todo
 - 📄 **Ajuste de línea** - Activar/desactivar el ajuste de línea desde el menú Ver
+- 🌙 **Modo Oscuro** - Tema oscuro amigable para entornos con poca luz con preferencia persistente
+- 🖱️ **Asociación de archivos** - Abre archivos .txt directamente haciendo doble clic en el Explorador de Windows
 - ⌨️ **Atajos de teclado** - Atajos estándar de Windows para operaciones comunes
 - 💾 **Detección de cambios sin guardar** - Un asterisco (*) en la barra de título indica cambios sin guardar
 - 🚨 **Salida inteligente** - Solicita guardar cambios antes de cerrar la aplicación
@@ -75,6 +77,7 @@ start SmallNotePad.sln
 4. **Buscar texto**: Usa `Editar → Buscar` (Ctrl+F) para buscar
 5. **Reemplazar texto**: Usa `Editar → Reemplazar` (Ctrl+H) para buscar y reemplazar
 6. **Activar ajuste de línea**: Usa `Ver → Ajuste de línea` para activar/desactivar el ajuste de texto
+7. **Cambiar a modo oscuro**: Usa `Ver → Modo oscuro` para cambiar el tema de la aplicación
 
 ## 📁 Estructura del proyecto
 
@@ -109,6 +112,7 @@ SmallNotePad/
 - **Guardar como**: Guarda con un nuevo nombre o ubicación
 - **Cerrar**: Cierra el archivo actual y vuelve a un documento en blanco
 - **Archivos recientes**: Accede a los últimos 10 archivos abiertos desde el menú Archivo → Archivos recientes. También puedes limpiar la lista de archivos recientes.
+- **Asociación de archivos**: Abre archivos .txt directamente haciendo doble clic en el Explorador de Windows (requiere instalación con el instalador)
 
 ### Características de edición
 - **Deshacer**: Revierte la última acción
@@ -121,10 +125,15 @@ SmallNotePad/
 - **Buscar anterior**: Ve a la aparición anterior (Shift+F3)
 - **Reemplazar**: Abre el diálogo Reemplazar. Introduce el texto a buscar y el texto de reemplazo, luego haz clic en 'Reemplazar todo'
 
+### Opciones de visualización
+- **Ajuste de línea**: Activa/desactiva el ajuste de línea de texto para mejor legibilidad
+- **Modo Oscuro**: Cambia entre temas claro y oscuro. Tu preferencia se guarda automáticamente y se restaura en el próximo inicio
+
 ### Experiencia del usuario
 - **Actualización de la barra de título**: Muestra el nombre del archivo e indicador de cambios sin guardar (*)
 - **Advertencia de cambios sin guardar**: Solicita guardar antes de cerrar
 - **Fuentes estándar**: Usa Consolas 12pt para una lectura cómoda
+- **Preferencias persistentes**: La configuración del modo oscuro se recuerda entre sesiones
 
 ## 🤝 Contribuciones
 
